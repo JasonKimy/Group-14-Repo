@@ -1,5 +1,4 @@
 //This file current does nothing. Indext.tsx is the default front page at the moment
-import React from 'react';
 import { SafeAreaView, StyleSheet, Text, View } from 'react-native';
 
 export default function App() {
