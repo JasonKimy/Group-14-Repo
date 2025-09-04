@@ -1,36 +1,23 @@
 import React, { useState } from "react";
-import { View, Text, TextInput, Button, FlatList, Image, Linking, StyleSheet } from "react-native";
-import { useRouter } from "expo-router"; // <— add this
+import { View, Text, TextInput, Button, StyleSheet } from "react-native";
+import { useRouter } from "expo-router";
 
 export default function Index() {
   const [query, setQuery] = useState("");
-  const [recipes, setRecipes] = useState<any[]>([]);
-  const router = useRouter(); // <— add this
+  const router = useRouter();
 
-  // Hardcoded keys (safe for testing, but don't publish with these!)
-  const RECIPE_APP_ID = "e0faa018";
-  const RECIPE_APP_KEY = "ca768e7ebae1b85849eb64bb6cbc0e4d";
+const handleSearch = () => {
+  if (query.trim().length > 0) {
+    router.push({
+      pathname: "./recipeSearched",
+      params: { query },
+    });
+  }
+};
 
-  const getRecipes = async () => {
-    try {
-      const response = await fetch(
-        `https://api.edamam.com/search?q=${query}&app_id=${RECIPE_APP_ID}&app_key=${RECIPE_APP_KEY}`
-      );
-      const data = await response.json();
-      console.log("API response:", data); 
-      setRecipes(data.hits || []);
-    } catch (error) {
-      console.error(error);
-    }
-  };
 
   return (
     <View style={styles.container}>
-      {/* New: quick button to go Home */}
-      <View style={{ alignSelf: "flex-end", marginBottom: 8 }}>
-        <Button title="Go to Home" onPress={() => router.push("/home")} />
-      </View>
-
       <Text style={styles.header}>OnlyFoods 🍲</Text>
 
       <TextInput
@@ -39,24 +26,29 @@ export default function Index() {
         value={query}
         onChangeText={setQuery}
       />
-      <Button title="Search" onPress={getRecipes} />
-
-      <FlatList
-        data={recipes}
-        keyExtractor={(_, index) => index.toString()}
-        renderItem={({ item }) => (
-          <View style={styles.card}>
-            <Text style={styles.title}>{item.recipe.label}</Text>
-            <Image source={{ uri: item.recipe.image }} style={styles.image} />
-            <Text
-              style={styles.link}
-              onPress={() => Linking.openURL(item.recipe.url)}
-            >
-              View Recipe
-            </Text>
-          </View>
-        )}
-      />
+      <Button title="Search" onPress={handleSearch} />
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    padding: 16,
+    backgroundColor: "#fff",
+  },
+  header: {
+    fontSize: 32,
+    fontWeight: "bold",
+    marginBottom: 16,
+    textAlign: "center",
+  },
+  input: {
+    borderWidth: 1,
+    borderColor: "#ccc",
+    borderRadius: 8,
+    padding: 8,
+    marginBottom: 12,
+  },
+});
