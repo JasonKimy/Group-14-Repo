@@ -1,15 +1,62 @@
-import { Text, View } from "react-native";
+import React, { useState } from "react";
+import { View, Text, TextInput, Button, FlatList, Image, Linking, StyleSheet } from "react-native";
+import { useRouter } from "expo-router"; // <— add this
 
 export default function Index() {
+  const [query, setQuery] = useState("");
+  const [recipes, setRecipes] = useState<any[]>([]);
+  const router = useRouter(); // <— add this
+
+  // Hardcoded keys (safe for testing, but don't publish with these!)
+  const RECIPE_APP_ID = "e0faa018";
+  const RECIPE_APP_KEY = "ca768e7ebae1b85849eb64bb6cbc0e4d";
+
+  const getRecipes = async () => {
+    try {
+      const response = await fetch(
+        `https://api.edamam.com/search?q=${query}&app_id=${RECIPE_APP_ID}&app_key=${RECIPE_APP_KEY}`
+      );
+      const data = await response.json();
+      console.log("API response:", data); 
+      setRecipes(data.hits || []);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
-    <View
-      style={{
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
-      <Text>Welcome to OnlyFoods!!</Text>
+    <View style={styles.container}>
+      {/* New: quick button to go Home */}
+      <View style={{ alignSelf: "flex-end", marginBottom: 8 }}>
+        <Button title="Go to Home" onPress={() => router.push("/home")} />
+      </View>
+
+      <Text style={styles.header}>OnlyFoods 🍲</Text>
+
+      <TextInput
+        style={styles.input}
+        placeholder="Search recipes..."
+        value={query}
+        onChangeText={setQuery}
+      />
+      <Button title="Search" onPress={getRecipes} />
+
+      <FlatList
+        data={recipes}
+        keyExtractor={(_, index) => index.toString()}
+        renderItem={({ item }) => (
+          <View style={styles.card}>
+            <Text style={styles.title}>{item.recipe.label}</Text>
+            <Image source={{ uri: item.recipe.image }} style={styles.image} />
+            <Text
+              style={styles.link}
+              onPress={() => Linking.openURL(item.recipe.url)}
+            >
+              View Recipe
+            </Text>
+          </View>
+        )}
+      />
     </View>
   );
 }
