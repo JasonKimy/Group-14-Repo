@@ -60,3 +60,16 @@ export default function Index() {
     </View>
   );
 }
+
+
+//this was missing, but it was in someone else old commit I just added it back
+//you can remove it if you've change the design I just have it so the app doesn't crash
+const styles = StyleSheet.create({
+  container: { flex: 1, padding: 20, backgroundColor: "#fff" },
+  header: { fontSize: 24, fontWeight: "bold", marginBottom: 10 },
+  input: { borderWidth: 1, padding: 8, marginBottom: 10, borderRadius: 5 },
+  card: { marginBottom: 20, padding: 10, borderWidth: 1, borderRadius: 10 },
+  title: { fontSize: 18, fontWeight: "bold" },
+  image: { width: "100%", height: 150, borderRadius: 10, marginTop: 5 },
+  link: { color: "blue", marginTop: 5 }
+});
