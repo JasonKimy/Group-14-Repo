@@ -1,9 +1,20 @@
 import React from "react";
 import { SafeAreaView, View, Text, Button, StyleSheet } from "react-native";
 import { useRouter } from "expo-router";
+import db from '../database/database';
 
 export default function Home() {
   const router = useRouter();
+
+  const checkUsers = async () => {
+    try{
+      const database = await db;
+      const result = await database.getAllAsync('SELECT * FROM users');
+      console.log('Users check:', result);
+    } catch(error){
+      console.error('Error checking users:', error);
+    }
+  }
 
   return (
     <SafeAreaView style={styles.safe}>
@@ -13,6 +24,17 @@ export default function Home() {
 
         <View style={styles.buttons}>
           <Button title="Start Searching" onPress={() => router.push("/")} />
+        </View>
+
+
+      //temporary spot for these two buttons
+        <View style={styles.buttons}>
+          <Button title="Create Account" onPress={() =>router.push("/create-account")} />
+        </View>
+
+      //checks if users from create-account are created
+        <View style={styles.buttons}>
+          <Button title="Check Users" onPress={checkUsers} />
         </View>
 
         
