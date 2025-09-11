@@ -1,5 +1,5 @@
-import React from "react";
-import { SafeAreaView, View, Text, Button, StyleSheet } from "react-native";
+import React, { useState } from "react";
+import { SafeAreaView, View, Text, Button, StyleSheet, TextInput } from "react-native";
 import { useRouter } from "expo-router";
 import db from '../database/database';
 
@@ -15,45 +15,50 @@ export default function Home() {
       console.error('Error checking users:', error);
     }
   }
+  const [query, setQuery] = useState("");
+  const handleSearch = () => {
+    if (query.trim().length > 0) {
+      router.push({
+        pathname: "./recipeSearched",
+        params: { query },
+      });
+    }
+  };
 
-  return (
-    <SafeAreaView style={styles.safe}>
+    return (
       <View style={styles.container}>
-        <Text style={styles.title}>OnlyFoods</Text>
-        <Text style={styles.subtitle}>Welcome! Do you want food :p</Text>
-
-        <View style={styles.buttons}>
-          <Button title="Start Searching" onPress={() => router.push("/")} />
-        </View>
-
-
-      //temporary spot for these two buttons
-        <View style={styles.buttons}>
-          <Button title="Create Account" onPress={() =>router.push("/create-account")} />
-        </View>
-
-      //checks if users from create-account are created
-        <View style={styles.buttons}>
-          <Button title="Check Users" onPress={checkUsers} />
-        </View>
-
-        
+        <Text style={styles.header}>OnlyFoods 🍲</Text>
+  
+        <TextInput
+          style={styles.input}
+          placeholder="Search recipes..."
+          value={query}
+          onChangeText={setQuery}
+        />
+        <Button title="Search" onPress={handleSearch} />
       </View>
-    </SafeAreaView>
-  );
+    );
 }
 
 const styles = StyleSheet.create({
-  safe: { flex: 1, backgroundColor: "#fff" },
   container: {
     flex: 1,
-    padding: 20,
-    alignItems: "center",
     justifyContent: "center",
-    gap: 10,
+    alignItems: "center",
+    backgroundColor: "#fff",
+    padding: 16,
   },
-  title: { fontSize: 32, fontWeight: "800" },
-  subtitle: { fontSize: 14, color: "#6b7280", marginBottom: 16, textAlign: "center" },
-  buttons: { width: "100%", gap: 12 },
-  note: { marginTop: 18, color: "#9ca3af", fontSize: 12, textAlign: "center" },
+  header: {
+    fontSize: 32,
+    fontWeight: "bold",
+    marginBottom: 24,
+  },
+  input: {
+    width: "100%",
+    padding: 10,
+    borderWidth: 1,
+    borderColor: "#ccc",
+    borderRadius: 8,
+    marginBottom: 16,
+  },
 });
