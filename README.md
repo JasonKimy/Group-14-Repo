@@ -16,7 +16,7 @@
 ### Built With
 
 * https://react.dev/
-  <img width="1280" height="850" alt="image" src="https://github.com/user-attachments/assets/cfa94d39-468b-45b4-8932-92ce2472258a" />
+  <img width="640" height="425" alt="image" src="https://github.com/user-attachments/assets/cfa94d39-468b-45b4-8932-92ce2472258a" />
 * https://www.npmjs.com/package/expo-sqlite
   <img width="329" height="116" alt="image" src="https://github.com/user-attachments/assets/7e0165d2-9a99-44dd-8669-1626174d89a3" />
 
