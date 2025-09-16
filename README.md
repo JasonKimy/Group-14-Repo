@@ -11,7 +11,7 @@ Use the `BLANK_README.md` to get started.
 
 ### Built With
 
-* [![React][React.js]][https://react.dev/]
+* https://react.dev/
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
