@@ -1,9 +1,11 @@
+<a id="readme-top"></a> T
 ## About The Project
+ This projest is a recipe search app. Users can create a account on the app to search and save any recipes that interest them. When they search a recipe, 
+ there is a filter bar in case they want something specific and they will be redirected to an new list of recipes. The new page lists the different recipes 
+ of the search item they want and has the original link of the recipe. 
+ 
 
-(https://example.com)
 
-
-Use the `BLANK_README.md` to get started.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
