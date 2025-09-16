@@ -1,8 +1,9 @@
 <a id="readme-top"></a> 
 ## About The Project
- This projest is a recipe search app. Users can create a account on the app to search and save any recipes that interest them. When they search a recipe, 
+ This projest is a recipe search app. Users can create an account on the app to search and save any recipes that interest them. When they search a recipe, 
  there is a filter bar in case they want something specific and they will be redirected to an new list of recipes. The new page lists the different recipes 
- of the search item they want and has the original link of the recipe. 
+ of the search item they want and has the original link of the recipe. They will also be an option for each recipe to save it into their account so instead of
+ searching for it again, they can look on their account page for their saved recipes. 
 
  
  
