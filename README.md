@@ -1,8 +1,10 @@
-<a id="readme-top"></a> T
+<a id="readme-top"></a> 
 ## About The Project
  This projest is a recipe search app. Users can create a account on the app to search and save any recipes that interest them. When they search a recipe, 
  there is a filter bar in case they want something specific and they will be redirected to an new list of recipes. The new page lists the different recipes 
  of the search item they want and has the original link of the recipe. 
+
+ 
  
 
 
@@ -14,6 +16,10 @@
 ### Built With
 
 * https://react.dev/
+  <img width="1280" height="850" alt="image" src="https://github.com/user-attachments/assets/cfa94d39-468b-45b4-8932-92ce2472258a" />
+* https://www.npmjs.com/package/expo-sqlite
+  <img width="329" height="116" alt="image" src="https://github.com/user-attachments/assets/7e0165d2-9a99-44dd-8669-1626174d89a3" />
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
