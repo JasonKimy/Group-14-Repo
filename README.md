@@ -58,6 +58,11 @@ This is an example of how to list things you need to use the software and how to
    git remote set-url origin github_username/repo_name
    git remote -v # confirm the changes
    ```
+6. Install and set Android Studio virtual machine to run app on
+7. Run the comman npm start in terminal
+   ```sh
+   npm start
+   ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
