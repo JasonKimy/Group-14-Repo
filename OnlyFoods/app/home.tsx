@@ -1,10 +1,14 @@
 import React, { useState } from "react";
 import { SafeAreaView, View, Text, Button, StyleSheet, TextInput } from "react-native";
-import { useRouter } from "expo-router";
+import { useLocalSearchParams, useRouter } from "expo-router";
 import db from '../database/database';
 
 export default function Home() {
   const router = useRouter();
+
+  //mock sessions just to test that favorite recipe works, send userId to
+  //every file
+  const { userId } = useLocalSearchParams<{ userId: string }>();
 
   const checkUsers = async () => {
     try{
@@ -15,12 +19,13 @@ export default function Home() {
       console.error('Error checking users:', error);
     }
   }
+
   const [query, setQuery] = useState("");
   const handleSearch = () => {
     if (query.trim().length > 0) {
       router.push({
         pathname: "./recipeSearched",
-        params: { query },
+        params: { query, userId },
       });
     }
   };
@@ -28,6 +33,7 @@ export default function Home() {
     return (
       <View style={styles.container}>
         <Text style={styles.header}>OnlyFoods 🍲</Text>
+        {userId && <Text style={styles.userInfo}>User ID: {userId}</Text>}
   
         <TextInput
           style={styles.input}
@@ -52,6 +58,11 @@ const styles = StyleSheet.create({
     fontSize: 32,
     fontWeight: "bold",
     marginBottom: 24,
+  },
+  userInfo: {
+    fontSize: 14,
+    color: "665",
+    marginBottom:16,
   },
   input: {
     width: "100%",
