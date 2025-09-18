@@ -1,11 +1,10 @@
 // app/login/index.js
-export { default } from '../../login';
 
 
 import React, { useState } from 'react';
 import { View, Text, TextInput, Button, Alert } from 'react-native';
 import { useRouter } from 'expo-router';
-import styles from './styles';
+import styles from '../login/styles';
 
 export default function LoginScreen() {
   const [username, setUsername] = useState('');
