@@ -1,4 +1,6 @@
 // app/login/index.js
+export { default } from '../../login';
+
 
 import React, { useState } from 'react';
 import { View, Text, TextInput, Button, Alert } from 'react-native';
