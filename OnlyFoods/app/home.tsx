@@ -1,14 +1,23 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { SafeAreaView, View, Text, Button, StyleSheet, TextInput } from "react-native";
 import { useLocalSearchParams, useRouter } from "expo-router";
 import db from '../database/database';
+import { getUserId, removeUserId } from "@/sessions/auth";
 
 export default function Home() {
   const router = useRouter();
+  const [userId, setUserId] = useState<number | null>(null);
+  const [query, setQuery] = useState("");
 
-  //mock sessions just to test that favorite recipe works, send userId to
-  //every file
-  const { userId } = useLocalSearchParams<{ userId: string }>();
+ // run npx expo install @react-native-async-storage/async-storage
+
+ useEffect(() => {
+  const loadUserId = async () => {
+    const storedUserId = await getUserId();
+    setUserId(storedUserId);
+  };
+  loadUserId();
+ }, []);
 
   const checkUsers = async () => {
     try{
@@ -20,15 +29,31 @@ export default function Home() {
     }
   }
 
-  const [query, setQuery] = useState("");
   const handleSearch = () => {
-    if (query.trim().length > 0) {
+    if(query.trim().length > 0 && userId){
       router.push({
         pathname: "./recipeSearched",
-        params: { query, userId },
+        params: { query, userId: userId.toString() }
       });
     }
   };
+
+  const handleLogout = async () =>{
+    await removeUserId();
+    setUserId(null);
+    router.push('/')
+  }
+
+
+  if (userId === null){
+    return (
+      <View style={styles.container}>
+        <Text style={styles.header}>OnlyFoods 🍲</Text>
+        <Text style={styles.message}>Login to continue</Text>
+        <Button title="Go To Login" onPress={() => router.push('/')} />
+      </View>
+    )
+  }
 
     return (
       <View style={styles.container}>
@@ -42,6 +67,11 @@ export default function Home() {
           onChangeText={setQuery}
         />
         <Button title="Search" onPress={handleSearch} />
+
+        <View style={styles.buttonContainer}>
+          <Button title = "Profile" onPress={() => router.push('/about')} />
+          <Button title = "Logout" onPress={handleLogout} />
+        </View>
       </View>
     );
 }
@@ -64,6 +94,11 @@ const styles = StyleSheet.create({
     color: "665",
     marginBottom:16,
   },
+  message: {
+    fontSize: 16,
+    marginBottom: 16,
+    textAlign: "center",
+  },
   input: {
     width: "100%",
     padding: 10,
@@ -71,5 +106,9 @@ const styles = StyleSheet.create({
     borderColor: "#ccc",
     borderRadius: 8,
     marginBottom: 16,
+  },
+  buttonContainer:{
+    marginTop: 20,
+    gap: 10,
   },
 });

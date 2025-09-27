@@ -3,17 +3,26 @@ import { View, Text, FlatList, Image, Linking, ActivityIndicator, Alert, StyleSh
 import { useLocalSearchParams, useRouter } from "expo-router";
 import { insertFavoriteRecipe } from '../database/database';
 import db from '../database/database';
+import { getUserId } from "@/sessions/auth";
 
-//may have to update expo with npx expo install --fix
 
 const RECIPE_APP_ID = "e0faa018";
 const RECIPE_APP_KEY = "ca768e7ebae1b85849eb64bb6cbc0e4d";
 
 export default function RecipeSearched() {
-  const { query, userId } = useLocalSearchParams<{ query: string, userId: string }>();
+  const { query } = useLocalSearchParams<{ query: string }>();
   const [recipes, setRecipes] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
+  const [userId, setUserId] = useState<number | null>(null);
   const router = useRouter();
+
+  useEffect(() => {
+    const loadUserId = async () => {
+      const storedUserId = await getUserId();
+      setUserId(storedUserId);
+    };
+    loadUserId();
+  },[]);
 
 useEffect(() => {
   const fetchRecipes = async () => {
@@ -48,9 +57,9 @@ const handleLikeRecipe = async (recipe: any) => {
   }
   const apiRecipeId = recipe.recipe.uri;
   const recipeTitle = recipe.recipe.label;
-  const userIdNum = parseInt(userId);
 
-  const success = await insertFavoriteRecipe(userIdNum, apiRecipeId, recipeTitle);
+
+  const success = await insertFavoriteRecipe(userId, apiRecipeId, recipeTitle);
   if (success) {
     Alert.alert("Success", "Recipe added to favorites!");
 
@@ -81,7 +90,7 @@ const handleLikeRecipe = async (recipe: any) => {
     return (
       <View style={styles.center}>
         <Text>No recipes found for "{query}"</Text>
-        <Text style={styles.link} onPress={() => router.push(`/home?userId={userId}`)}>
+        <Text style={styles.link} onPress={() => router.push(`/home`)}>
           ← Back
         </Text>
       </View>

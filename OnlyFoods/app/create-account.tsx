@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { View, Text, TextInput, Button, Alert, StyleSheet } from 'react-native';
 import { useRouter } from 'expo-router';
 import db from '../database/database';
+import { saveUserId } from '../sessions/auth';
 
 export default function CreateAccountScreen() {
   const [username, setUsername] = useState('');
@@ -53,10 +54,11 @@ export default function CreateAccountScreen() {
                 [username]
             ) as { id: number} | null;
             if (user){
+              await saveUserId(user.id);
                 Alert.alert('Success', 'Account created', [
                     {
                     text: 'Ok',
-                    onPress: () => router.push(`/home?userId=${user.id}`)
+                    onPress: () => router.push(`/home`)
                     }
                 ]);
             }
