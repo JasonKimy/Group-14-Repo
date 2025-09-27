@@ -1,50 +1,79 @@
-# Welcome to your Expo app 👋
+<a id="readme-top"></a> 
+## About The Project
+ This projest is a recipe search app. Users can create an account on the app to search and save any recipes that interest them. When they search a recipe, 
+ there is a filter bar in case they want something specific and they will be redirected to an new list of recipes. The new page lists the different recipes 
+ of the search item they want and has the original link of the recipe. They will also be an option for each recipe to save it into their account so instead of
+ searching for it again, they can look on their account page for their saved recipes. 
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+ 
+ 
 
-## Get started
 
-1. Install dependencies
 
-   ```bash
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+
+### Built With
+
+* https://react.dev/
+* https://www.npmjs.com/package/expo-sqlite
+
+  <img width="571" height="278" alt="image" src="https://github.com/user-attachments/assets/f695bc3e-aec9-4cb4-86a6-b5253f3c269e" />
+  <img width="329" height="116" alt="image" src="https://github.com/user-attachments/assets/7e0165d2-9a99-44dd-8669-1626174d89a3" />
+
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+
+<!-- GETTING STARTED -->
+## Getting Started
+
+### Prerequisites
+
+This is an example of how to list things you need to use the software and how to install them.
+* npm
+  ```sh
+  npm install npm@latest -g
+  ```
+
+### Installation
+
+1. Get a free API Key and ID at (https://www.edamam.com/)
+2. Clone the repo
+   ```sh
+   git clone https://github.com/github_username/repo_name.git
+   ```
+3. Install NPM packages
+   ```sh
    npm install
    ```
-
-2. Start the app
-
-   ```bash
-   npx expo start
+4. Enter your API in `recipeSearched.tsx`
+   ```tsx
+   const RECIPE_APP_ID = "ENTER API ID";
+   const RECIPE_APP_KEY = "ENTER API KEY";
+   ```
+5. Change git remote url to avoid accidental pushes to base project
+   ```sh
+   git remote set-url origin github_username/repo_name
+   git remote -v # confirm the changes
+   ```
+6. Install and set Android Studio virtual machine to run app on
+7. Run the comman npm start in terminal
+   ```sh
+   npm start
    ```
 
-In the output, you'll find options to open the app in a
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
 
-## Get a fresh project
+<!-- USAGE EXAMPLES -->
+## Usage
 
-When you're ready, run:
+Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
 
-```bash
-npm run reset-project
-```
+_For more examples, please refer to the [Documentation]()_
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
-
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
