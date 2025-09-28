@@ -55,11 +55,13 @@ const handleLikeRecipe = async (recipe: any) => {
     Alert.alert("Error", "User not logged in");
     return;
   }
-  const apiRecipeId = recipe.recipe.uri;
+  
   const recipeTitle = recipe.recipe.label;
+  const recipeUrl = recipe.recipe.url;
+  const imageUrl = recipe.recipe.image
 
 
-  const success = await insertFavoriteRecipe(userId, apiRecipeId, recipeTitle);
+  const success = await insertFavoriteRecipe(userId, recipeTitle, recipeUrl, imageUrl);
   if (success) {
     Alert.alert("Success", "Recipe added to favorites!");
 

@@ -25,8 +25,9 @@ export const initDatabase = async () => {
         CREATE TABLE IF NOT EXISTS favorite_recipes (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             user_id INTEGER,
-            api_recipe_id TEXT NOT NULL,
             recipe_title TEXT,
+            recipe_url TEXT,
+            image_url TEXT,
             saved_at DATETIME DEFAULT CURRENT_TIMESTAMP,
             FOREIGN KEY (user_id) REFERENCES users (id)
         );
@@ -52,18 +53,32 @@ export const getUserProfile = async (userId) => {
   };
 
   
-  export const insertFavoriteRecipe = async (userid, apiRecipeId, recipeTitle) => {
+  export const insertFavoriteRecipe = async (userid, recipeTitle, recipeUrl, imageUrl) => {
     try{
         const database = await db;
         await database.runAsync(
-            'INSERT OR IGNORE INTO favorite_recipes (user_id, api_recipe_id, recipe_title) VALUES (?,?,?)',
-            [userid, apiRecipeId, recipeTitle]
+            'INSERT OR IGNORE INTO favorite_recipes (user_id, recipe_title, recipe_url, image_url) VALUES (?,?,?,?)',
+            [userid, recipeTitle, recipeUrl, imageUrl]
         );
         return true;
     }catch(error){
         console.error('Error with favorite:', error);
         Alert.alert('Error', 'Unable to favorite recipe. Try again.');
         return false;
+    }
+  };
+
+  export const loadFavorites = async (userId) => {
+    try{
+        const database = await db;
+        const favoriteRecipes = await database.getAllAsync(
+            'SELECT * FROM favorite_recipes WHERE user_id = ?',
+            [userId]
+        );
+        return favoriteRecipes
+    } catch(error){
+        console.error('Error loading favorites:', error);
+        return [];
     }
   };
 

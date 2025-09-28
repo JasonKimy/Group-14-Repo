@@ -33,7 +33,7 @@ export default function Home() {
     if(query.trim().length > 0 && userId){
       router.push({
         pathname: "./recipeSearched",
-        params: { query, userId: userId.toString() }
+        params: { query }
       });
     }
   };
