@@ -9,9 +9,10 @@ import {
   TouchableOpacity,
   KeyboardAvoidingView,
   Platform,
-  SafeAreaView,
 } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import db from '../database/database';
+import { saveUserId } from '../sessions/auth';
 
 export default function CreateAccountScreen() {
   const [username, setUsername] = useState('');
@@ -53,10 +54,28 @@ export default function CreateAccountScreen() {
     }
 
     const success = await createUser(username, password);
-    if (success) {
-      Alert.alert('Success', 'Account created', [
-        { text: 'Ok', onPress: () => router.push('/home') },
-      ]);
+
+    if(success){
+        try{
+            const database = await db;
+            const user = await database.getFirstAsync(
+                'SELECT id FROM users WHERE username = ?',
+                [username]
+            ) as { id: number} | null;
+            if (user){
+              await saveUserId(user.id);
+                Alert.alert('Success', 'Account created', [
+                    {
+                    text: 'Ok',
+                    onPress: () => router.push(`/home`)
+                    }
+                ]);
+            }
+        } catch (error){
+            console.error('Error getting userId:', error);
+            router.push('/home');
+        }
+
     }
   };
 

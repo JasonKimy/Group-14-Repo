@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { View, Text, FlatList, Image, Linking, ActivityIndicator, StyleSheet } from "react-native";
+import { View, Text, FlatList, Image, Linking, ActivityIndicator, Alert, StyleSheet, TouchableOpacity } from "react-native";
 import { useLocalSearchParams, useRouter } from "expo-router";
+import { insertFavoriteRecipe } from '../database/database';
+import db from '../database/database';
+import { getUserId } from "@/sessions/auth";
+
 
 const RECIPE_APP_ID = "e0faa018";
 const RECIPE_APP_KEY = "ca768e7ebae1b85849eb64bb6cbc0e4d";
@@ -9,7 +13,16 @@ export default function RecipeSearched() {
   const { query } = useLocalSearchParams<{ query: string }>();
   const [recipes, setRecipes] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
+  const [userId, setUserId] = useState<number | null>(null);
   const router = useRouter();
+
+  useEffect(() => {
+    const loadUserId = async () => {
+      const storedUserId = await getUserId();
+      setUserId(storedUserId);
+    };
+    loadUserId();
+  },[]);
 
 useEffect(() => {
   const fetchRecipes = async () => {
@@ -36,6 +49,35 @@ useEffect(() => {
   fetchRecipes();
 }, [query]);
 
+//Saves favorite recipe, but may need to change the apiRecipeId to be accurate
+const handleLikeRecipe = async (recipe: any) => {
+  if(!userId){
+    Alert.alert("Error", "User not logged in");
+    return;
+  }
+  
+  const recipeTitle = recipe.recipe.label;
+  const recipeUrl = recipe.recipe.url;
+  const imageUrl = recipe.recipe.image
+
+
+  const success = await insertFavoriteRecipe(userId, recipeTitle, recipeUrl, imageUrl);
+  if (success) {
+    Alert.alert("Success", "Recipe added to favorites!");
+
+    //checks the favorites table to make sure everything is correctly displayed
+    try {
+      const database = await db;
+      const favorites = await database.getAllAsync('SELECT * FROM favorite_recipes');
+      console.log('Current favorites:', favorites);
+  } catch (error) {
+      console.error('Error checking favorites:', error);
+  }
+  }else {
+    Alert.alert("Error", "Failed to save recipe");
+  }
+}
+
 
   if (loading) {
     return (
@@ -50,7 +92,7 @@ useEffect(() => {
     return (
       <View style={styles.center}>
         <Text>No recipes found for "{query}"</Text>
-        <Text style={styles.link} onPress={() => router.back()}>
+        <Text style={styles.link} onPress={() => router.push(`/home`)}>
           ← Back
         </Text>
       </View>
@@ -74,6 +116,13 @@ useEffect(() => {
             >
               View Original Recipe
             </Text>
+
+            <TouchableOpacity
+              style={styles.likeButton}
+              onPress={() => handleLikeRecipe(item)}
+              >
+                <Text style={styles.likeButtonText}>Add to Favorites</Text>
+              </TouchableOpacity>
           </View>
         )}
       />
@@ -95,5 +144,7 @@ const styles = StyleSheet.create({
   title: { fontSize: 18, fontWeight: "bold", marginBottom: 8, textAlign: "center" },
   image: { width: 200, height: 200, borderRadius: 8, marginBottom: 8 },
   link: { color: "#190097ff", textDecorationLine: "underline", marginTop: 8 },
+  likeButton: { backgroundColor: "#FF6B6B", paddingHorizontal:20, paddingVertical:10, borderRadius: 25, marginTop: 10, elevation:2},
+  likeButtonText: { color: "white", fontWeight: "bold", fontSize: 16, },
   center: { flex: 1, justifyContent: "center", alignItems: "center" },
 });
