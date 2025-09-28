@@ -21,6 +21,23 @@ export const initDatabase = async () => {
         );
     `);
 
+    try {
+        await database.execAsync(`ALTER TABLE users ADD COLUMN name TEXT DEFAULT '';`);
+      } catch (error) {
+        if (!error.message.includes("duplicate column name")) {
+          console.error("Error adding name column:", error);
+        }
+      }
+
+    try {
+        await database.execAsync(`ALTER TABLE users ADD COLUMN favoriteFood TEXT DEFAULT '';`);
+      } catch (error) {
+        // Ignore error if column already exists
+        if (!error.message.includes("duplicate column name")) {
+          console.error("Error adding favoriteFood column:", error);
+        }
+      }
+
     await database.execAsync(`
         CREATE TABLE IF NOT EXISTS favorite_recipes (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -33,6 +50,20 @@ export const initDatabase = async () => {
         );
     `);
 
+    await database.execAsync(`
+        CREATE TABLE IF NOT EXISTS recipes (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            name TEXT NOT NULL,
+            ingredients TEXT NOT NULL,
+            instructions TEXT NOT NULL,
+            category TEXT,
+            duration TEXT,
+            imageUrl TEXT
+        );
+    `);
+    
+    console.log('Database initialized');
+
 };
 
 
@@ -40,12 +71,11 @@ export const initDatabase = async () => {
 export const getUserProfile = async (userId) => {
     try{
       const database = await db;
-      const user = await database.getFirstAsync('SELECT * FROM users WHERE id = ?', [userId]);
+      const user = await database.getFirstAsync(
+        'SELECT * FROM users WHERE id = ?', [userId]
+    );
 
-      if(!user){
-        return null;
-      }
-      return user;
+      return user || null;
     } catch (error){
         console.error('Error getting user data:', error);
         throw error
@@ -83,17 +113,36 @@ export const getUserProfile = async (userId) => {
   };
 
 //to be implemented in about.tsx
-export const updateUserProfile = async (username, userBio, imageUrl, userId) => {
-    try{
+export const updateUserProfile = async (name, userBio, imageUrl, favoriteFood, userId) => {
+    try {
         const database = await db;
-        const result = await database.runAsync('UPDATE users SET username= ?, bio = ?, imageUrl = ? WHERE id = ?',
-             [username, userBio, imageUrl, userId]);
-    } catch(error){
+        await database.runAsync(
+            'UPDATE users SET name = ?, bio = ?, imageUrl = ?, favoriteFood = ? WHERE id = ?',
+            [name, userBio, imageUrl, favoriteFood, userId]
+        );
+        return true;
+    } catch (error) {
         console.log('Error with update:', error);
-        throw error;
+        return false;
     }
 };
 
+
+//for recipe form by magda
+export const insertRecipe = async (name, ingredients, instructions, category, duration, imageUrl) => {
+    try {
+      const database = await db;
+      await database.runAsync(
+        'INSERT INTO recipes (name, ingredients, instructions, category, duration, imageUrl) VALUES (?,?,?,?,?,?)',
+        [name, ingredients, instructions, category, duration, imageUrl]
+      );
+      return true;
+    } catch (error) {
+      console.error('Error inserting recipe:', error);
+      return false;
+    }
+  };
+  
 
 export default db;
 

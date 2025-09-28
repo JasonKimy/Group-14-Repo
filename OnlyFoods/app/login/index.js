@@ -1,12 +1,9 @@
 // app/login/index.js
-export { default } from '../../login';
-
-
 import React, { useEffect, useState } from 'react';
 import { View, Text, TextInput, Button, Alert } from 'react-native';
 import { useRouter } from 'expo-router';
 import styles from './styles';
-import db, { initDatabase } from '.. /database/database.js';
+import db, { initDatabase } from '../../database/database.js';
 
 export default function LoginScreen() {
   const [username, setUsername] = useState('');
@@ -32,7 +29,7 @@ export default function LoginScreen() {
 
       if (result.length > 0){
         Alert.alert('Success', `Welcome, ${username}!`);
-        router.push('/home');//redirect after login
+        router.push('/home');//redirect to home.tsx file located in Onlyfoods/app/home.tsx after login
       }else{
         Alert.alert('Error', 'Invalid username or password');
       }

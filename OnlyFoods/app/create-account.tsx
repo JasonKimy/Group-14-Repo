@@ -124,7 +124,7 @@ export default function CreateAccountScreen() {
 
           <TouchableOpacity
             style={[styles.secondaryBtn, styles.spaced]}
-            onPress={() => router.push('/login/')}
+            onPress={() => router.push('/login')}
           >
             <Text style={styles.secondaryBtnText}>Login</Text>
           </TouchableOpacity>

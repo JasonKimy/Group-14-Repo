@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { SafeAreaView, View, Text, Button, StyleSheet, TextInput } from "react-native";
+import { SafeAreaView, View, Text, Button, StyleSheet, TextInput, TouchableOpacity } from "react-native";
 import { useLocalSearchParams, useRouter } from "expo-router";
 import db from '../database/database';
 import { getUserId, removeUserId } from "@/sessions/auth";
+
+import { FontAwesome } from '@expo/vector-icons';
+
 
 export default function Home() {
   const router = useRouter();
@@ -45,7 +48,7 @@ export default function Home() {
   }
 
 
-  if (userId === null){
+{/* if (userId === null){
     return (
       <View style={styles.container}>
         <Text style={styles.header}>OnlyFoods 🍲</Text>
@@ -53,13 +56,14 @@ export default function Home() {
         <Button title="Go To Login" onPress={() => router.push('/')} />
       </View>
     )
-  }
+  } */}
 
     return (
       <View style={styles.container}>
+        {/* header with title and user icon*/}
         <Text style={styles.header}>OnlyFoods 🍲</Text>
         {userId && <Text style={styles.userInfo}>User ID: {userId}</Text>}
-  
+
         <TextInput
           style={styles.input}
           placeholder="Search recipes..."
@@ -68,10 +72,24 @@ export default function Home() {
         />
         <Button title="Search" onPress={handleSearch} />
 
-        <View style={styles.buttonContainer}>
-          <Button title = "Profile" onPress={() => router.push('/about')} />
-          <Button title = "Logout" onPress={handleLogout} />
-        </View>
+        {/* Floating + button for adding recipe*/}
+        <TouchableOpacity
+          style={styles.addButton}
+          onPress={() => router.push("/recipeform")}
+        >
+          <Text style={styles.addButtonText}>+</Text>
+      </TouchableOpacity>
+
+      {/* Floating user icon at bottom-left */}
+      <TouchableOpacity
+        style={styles.userButton}
+        onPress={() => router.push("/about")}
+      >
+        <FontAwesome name="user-circle" size={32} color="#4CAF50" />
+      </TouchableOpacity>
+
+      {/*logout button*/}
+      <Button title = "Logout" onPress={handleLogout} />
       </View>
     );
 }
@@ -107,8 +125,38 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     marginBottom: 16,
   },
-  buttonContainer:{
-    marginTop: 20,
-    gap: 10,
+  addButton: {
+    position: "absolute",
+    bottom: 30,
+    right: 30,
+    width: 60,
+    height: 60,
+    borderRadius: 30,
+    backgroundColor: "#4CAF50",
+    justifyContent: "center",
+    alignItems: "center",
+    shadowColor: "#000",
+    shadowOpacity: 0.3,
+    shadowRadius: 4,
+    elevation: 5,
+  },
+  addButtonText: {
+    fontSize: 30,
+    color: "white",
+  },
+  userButton: {
+    position: "absolute",
+    bottom: 30,
+    left: 30,
+    width: 60,
+    height: 60,
+    borderRadius: 30,
+    backgroundColor: "#ddd",
+    justifyContent: "center",
+    alignItems: "center",
+    shadowColor: "#000",
+    shadowOpacity: 0.3,
+    shadowRadius: 4,
+    elevation: 5,
   },
 });
