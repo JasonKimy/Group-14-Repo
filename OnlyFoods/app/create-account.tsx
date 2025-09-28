@@ -9,9 +9,10 @@ import {
   TouchableOpacity,
   KeyboardAvoidingView,
   Platform,
-  SafeAreaView,
 } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import db from '../database/database';
+import { saveUserId } from '../sessions/auth';
 
 export default function CreateAccountScreen() {
   const [username, setUsername] = useState('');
@@ -62,10 +63,11 @@ export default function CreateAccountScreen() {
                 [username]
             ) as { id: number} | null;
             if (user){
+              await saveUserId(user.id);
                 Alert.alert('Success', 'Account created', [
                     {
                     text: 'Ok',
-                    onPress: () => router.push(`/home?userId=${user.id}`)
+                    onPress: () => router.push(`/home`)
                     }
                 ]);
             }
@@ -122,7 +124,7 @@ export default function CreateAccountScreen() {
 
           <TouchableOpacity
             style={[styles.secondaryBtn, styles.spaced]}
-            onPress={() => router.push('/login')}
+            onPress={() => router.push('/login/')}
           >
             <Text style={styles.secondaryBtnText}>Login</Text>
           </TouchableOpacity>
