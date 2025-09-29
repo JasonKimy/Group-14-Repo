@@ -94,7 +94,7 @@ Communication was managed via Slack and team meetings twice a week.
 **Jason Kim**  
 - Pull Requests: [PR Link](https://github.com/JasonKimy/Group-14-Repo/issues?q=is%3Aclosed%20is%3Apr%20author%3AJasonKimy)  
 - Issues: [Issue link](https://github.com/JasonKimy/Group-14-Repo/issues?q=is%3Aclosed%20is%3Aissue%20author%3AJasonKimy)  
-- Role: [Project Teammate]
+- Role: Came up with the project idea, found and set up the API, and worked on the recipe searched page when the user searches a recipe whiched called the API for the recipes they want. 
 - **Biggest Challenge: Imports**
    - **Why: There would be times when someone would add changes that would include imports. After merging the changes and updating my branch to main,
        when trying to run the code I would get errors for the missing imports. Would throw me off a bit and would have to figure out the imports.**
