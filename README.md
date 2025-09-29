@@ -104,16 +104,17 @@ Communication was managed via Slack and team meetings twice a week.
 - **Most Valuable Lesson: Where there's an import, there are at least 5 errors to expect.** 
 
 
-**Aaron Perez**  
-- Pull Requests: [link to PRs](#)  
-- Issues: [link to Issues](#)  
-- Role: [Fill in role here]
-- **Biggest Challenge:**
-   - **Why:**
-   - **How addressed:** 
-- **Favorite Part:**
-- **If redo:**
-- **Most Valuable Lesson:** 
+  **Aaron Perez**  
+- Pull Requests: [link to PRs](https://github.com/JasonKimy/Group-14-Repo/pulls?q=is%3Apr+is%3Aclosed+author%3ATuffAaron)  
+- Issues: [link to Issues](https://github.com/JasonKimy/Group-14-Repo/issues?q=is%3Aissue%20state%3Aclosed%20author%3ATuffAaron)  
+- Role: Worked on the database, async storage, and allowing users to save their favorite recipes.
+- **Biggest Challenge:**  Having to figure out how to work with React
+   - **Why:** I'm already familiar with developing apps and webpages that use databases, APIs, and dynamically display data, but I had zero experience with React before this project. 
+   - **How addressed:** I think it was in one of our lectures that I heard “You never know more about something than when you’re working on it”, and this is the way I addressed this challenge, just start working on it. Also, Roberto did point me to Async Storage which was a great help there.
+- **Favorite Part:** The flatlist that displays the recipes. I like the look of it, and it's why I used the same design to display the user's favorite recipes.
+- **If redo:**  I would have asked Roberto how to implement sessions first rather than initially sending the userId to every file as local Param. This could have saved me some time working on the project.
+- **Most Valuable Lesson:** Learning how to work and communicate with a group and trusting in each other to complete our respective parts. Also, making sure that you inform the people your working on a project with about the installations that you added locally that they will have to also add (my bad).
+
 
 **Magda Vicente**  
 - Pull Requests: [PR](https://github.com/JasonKimy/Group-14-Repo/pulls?q=is%3Apr+is%3Aclosed+author%3Amozartella)  
