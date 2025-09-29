@@ -18,7 +18,7 @@ export default function Home() {
     } catch(error){
       console.error('Error checking users:', error);
     }
-  }
+  } 
 
   const [query, setQuery] = useState("");
   const handleSearch = () => {
@@ -33,7 +33,7 @@ export default function Home() {
     return (
       <View style={styles.container}>
         <Text style={styles.header}>OnlyFoods 🍲</Text>
-        {userId && <Text style={styles.userInfo}>User ID: {userId}</Text>}
+        
   
         <TextInput
           style={styles.input}
