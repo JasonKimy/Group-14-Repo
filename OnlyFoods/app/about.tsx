@@ -1,29 +1,16 @@
 import React, { useState, useEffect } from "react";
 import { View, Text, TextInput, Image, Button, TouchableOpacity, StyleSheet, FlatList, Linking } from "react-native";
 import * as ImagePicker from "expo-image-picker";
-//import { getUserProfile, saveUserProfile } from "../../OnlyFoods/database/database.js"; 
-import { useRouter } from "expo-router";
-import { getUserId } from "@/sessions/auth";
-import { loadFavorites } from '../database/database';
+import { getUserId } from "@/sessions/auth"; 
+import { getUserProfile, updateUserProfile, loadFavorites } from "../database/database";
+import { useRouter, useLocalSearchParams } from "expo-router";
+import { Alert } from "react-native";
 
-const getUserProfile = async () => {
-    // return fake data
-    return {
-      name: "Jane Doe",
-      description: "I love cooking!",
-      favoriteFood: "Pizza",
-      photo: null,
-    };
-  };
-
-  const saveUserProfile = async (profile: any) => {
-    console.log("Saving profile (stub):", profile);
-    alert("Profile saved (stub)!");
-    return true;
-  };
 
 export default function AboutUser() {
   const router = useRouter();
+  //const { userId } = useLocalSearchParams<{ userId: string }>();
+
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [favoriteFood, setFavoriteFood] = useState("");
@@ -45,16 +32,23 @@ export default function AboutUser() {
   // Load existing profile on mount
   useEffect(() => {
     const fetchProfile = async () => {
-      const user = await getUserProfile(); // expects object { name, description, favoriteFood, photo }
-      if (user) {
-        setName(user.name);
-        setDescription(user.description);
-        setFavoriteFood(user.favoriteFood);
-        setPhoto(user.photo);
+      if (!userId) return;
+
+      try {
+        const user = await getUserProfile(userId);
+        if (user) {
+        setName(user.name || "");
+        setDescription(user.bio || "");
+        setFavoriteFood(user.favoriteFood || "");
+        setPhoto(user.imageUrl || null);
       }
+    } catch (error) {
+      console.error("Error loading user profile:", error);
+      Alert.alert("Error", "Could not load profile.");
+    }
     };
     fetchProfile();
-  }, []);
+  }, [userId]);
 
   const handleLoadFavorites = async () => {
     if(!userId) return;
@@ -76,9 +70,22 @@ export default function AboutUser() {
   };
 
   const handleSave = async () => {
-    await saveUserProfile({ name, description, favoriteFood, photo });
-    alert("Profile saved!");
-    router.push("/"); // optional: navigate to Home after save
+    if (!userId) return;
+    console.log("Saving profile...", { name, description, favoriteFood, photo });
+    try {
+      const success = await updateUserProfile (name, description, photo, favoriteFood, userId);
+      if (success) {
+        Alert.alert("Success", "Profile saved!", [
+          { text: "OK", onPress: () => router.push(`/home?userId=${userId}`) }
+        ]
+        );
+      } else {
+        Alert.alert("Error", "Could not save profile.");
+      }
+    } catch (error) {
+      console.error("Error saving profile:", error);
+      Alert.alert("Error", "Could not save profile.");
+    }
   };
 
   return (
@@ -88,13 +95,18 @@ export default function AboutUser() {
           <Image source={{ uri: photo }} style={styles.photo} />
         ) : (
           <View style={styles.photoPlaceholder}>
-            <Text style={{ fontSize: 32, color:"#ff0000" }}>+</Text>
+            <TextInput
+              placeholder="+"
+              editable={false}
+              style={{ fontSize: 32, color:"#ff0000" }}
+              />
           </View>
         )}
       </TouchableOpacity>
 
       <TextInput
         placeholder="Your Name"
+        placeholderTextColor="#555"
         value={name}
         onChangeText={setName}
         style={styles.input}
@@ -102,6 +114,7 @@ export default function AboutUser() {
 
       <TextInput
         placeholder="Short description"
+        placeholderTextColor="#555"
         value={description}
         onChangeText={setDescription}
         style={styles.input}
@@ -110,6 +123,7 @@ export default function AboutUser() {
 
       <TextInput
         placeholder="Favorite Food"
+        placeholderTextColor="#555"
         value={favoriteFood}
         onChangeText={setFavoriteFood}
         style={styles.input}
@@ -151,11 +165,11 @@ const styles = StyleSheet.create({
     padding: 20,
     alignItems: "center",
   },
-  photo: {
-    width: 100,
-    height: 100,
-    borderRadius: 50,
-    marginBottom: 20,
+  photo: { 
+    width: 100, 
+    height: 100, 
+    borderRadius: 50, 
+    marginBottom: 20 
   },
   photoPlaceholder: {
     width: 100,
