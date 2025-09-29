@@ -65,6 +65,9 @@ This is an example of how to list things you need to use the software and how to
 
 
 ## Team Retrospective
+**Group 14**
+**Group 14 Repo**: [repo link](https://github.com/JasonKimy/Group-14-Repo.git)
+
 
 ### Communication
 Communication was managed via Slack and team meetings twice a week.
