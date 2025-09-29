@@ -1,6 +1,6 @@
 <a id="readme-top"></a> 
 # OnlyFoods App
-## About The Project
+## Overview
  This projest is a recipe search app. Users can create an account on the app to search and save any recipes that interest them. When they search a recipe, 
  there is a filter bar in case they want something specific and they will be redirected to an new list of recipes. The new page lists the different recipes 
  of the search item they want and has the original link of the recipe. They will also be an option for each recipe to save it into their account so instead of
@@ -126,8 +126,6 @@ Communication was managed via Slack and team meetings twice a week.
 - **Most Valuable Lesson:** Learn the importance of understanding both front-end and back-end so you don't struggle and have to reply on your peers for back-end info. 
 
 ## Conclusion
+Most of the user stories and issues were completed as planned, and the app functions as intended. Users can search for recipes, save their favorites, and updated their about page successfully. The biggest win was having all features integrate smoothly—front-end functionality, database interactions, and API calls worked together as expected. The app was fully presentable and ready to demonstrate. Overall, the project was highly educational. While some challenges with backend integration and GitHub commands arose, they were overcome through practice, collaboration, and research. The team now has stronger skills in both front-end and back-end development and better understanding of project workflows and version control.
 
-- How successful was the project?
-  - 
-- What was the largest victory?
-- Final assessment of the project
+
