@@ -104,7 +104,7 @@ Communication was managed via Slack and team meetings twice a week.
 - **Most Valuable Lesson: Where there's an import, there are at least 5 errors to expect.** 
 
 
-  **Aaron Perez**  
+**Aaron Perez**  
 - Pull Requests: [link to PRs](https://github.com/JasonKimy/Group-14-Repo/pulls?q=is%3Apr+is%3Aclosed+author%3ATuffAaron)  
 - Issues: [link to Issues](https://github.com/JasonKimy/Group-14-Repo/issues?q=is%3Aissue%20state%3Aclosed%20author%3ATuffAaron)  
 - Role: Worked on the database, async storage, and allowing users to save their favorite recipes.
@@ -120,7 +120,7 @@ Communication was managed via Slack and team meetings twice a week.
 - Pull Requests: [PR](https://github.com/JasonKimy/Group-14-Repo/pulls?q=is%3Apr+is%3Aclosed+author%3Amozartella)  
 - Issues: [Issues](https://github.com/JasonKimy/Group-14-Repo/issues?q=is%3Aissue%20state%3Aclosed%20author%3Amozartella)  
 - Role: Worked mostly on Front End; touched up the database when needed  
-- **Biggest Challenge:** Working with the database and ensuring everything integrates correctly; also learning GitHub commands  
+- **Biggest Challenge:** Working with the database and ensuring everything integrates correctly; also learning GitHub commands 
   - **Why:** I’m less confident with backend work and GitHub commands, and I worried about breaking things  
   - **How addressed:** Practiced regularly, asked teammates for help, reviewed slides, and researched GitHub commands online  
 - **Favorite Part:** Organizing the layout of the pages  
