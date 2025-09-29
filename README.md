@@ -75,16 +75,25 @@ Communication was managed via Slack and team meetings twice a week.
 
 ### Team Members
 
-**Darius Cuevas**  
-- Pull Requests: [link to PRs](#)  
-- Issues: [link to Issues](#)  
-- Role: [Fill in role here]
-- **Biggest Challenge:**
-   - **Why:**
-   - **How addressed:** 
-- **Favorite Part:**
-- **If redo:**
-- **Most Valuable Lesson:** 
+Darius Cuevas
+Pull Requests:
+https://github.com/JasonKimy/Group-14-Repo/pull/42
+https://github.com/JasonKimy/Group-14-Repo/pull/39
+https://github.com/JasonKimy/Group-14-Repo/pull/38
+https://github.com/JasonKimy/Group-14-Repo/pull/24
+Issues:
+https://github.com/JasonKimy/Group-14-Repo/issues/34
+https://github.com/JasonKimy/Group-14-Repo/issues/19
+https://github.com/JasonKimy/Group-14-Repo/issues/11
+https://github.com/JasonKimy/Group-14-Repo/issues/4
+What was your role / which stories did you work on:
+The biggest challenge I worked on was getting the search filter bar to work.
+This is mainly due to the fact that I needed to figure out a way to discreetly change the outcome of the users search result.
+The challenge was addressed by just using string concatenation which was simple enough. I was overthinking and trying to come up with complicated solutions instead of a simple one that worked.
+My favorite part of the project was seeing the API boot up and work. That's actually my favorite part in any project because it makes me realize any data can be taken from the internet. The ethics about that is another discussion.
+I would change working on the CSS last. I worked on it in the beginning but then the CSS was constantly changing since new additions were being added to the screen. So next time CSS will be added last.
+I found the most valuable thing was the stress that comes with being a Software Engineer. Trying to merge your code with others and seeing merge conflicts.
+
 
 **Jason Kim**  
 - Pull Requests: [PR Link](https://github.com/JasonKimy/Group-14-Repo/issues?q=is%3Aclosed%20is%3Apr%20author%3AJasonKimy)  
