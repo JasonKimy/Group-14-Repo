@@ -92,15 +92,16 @@ Communication was managed via Slack and team meetings twice a week.
 - **Most Valuable Lesson:** 
 
 **Jason Kim**  
-- Pull Requests: [link to PRs](#)  
-- Issues: [link to Issues](#)  
-- Role: [Fill in role here]
-- **Biggest Challenge:**
-   - **Why:**
-   - **How addressed:** 
-- **Favorite Part:**
-- **If redo:**
-- **Most Valuable Lesson:** 
+- Pull Requests: [https://github.com/JasonKimy/Group-14-Repo/issues?q=is%3Aclosed%20is%3Apr%20author%3A%40me](#)  
+- Issues: [https://github.com/JasonKimy/Group-14-Repo/issues?q=is%3Aclosed%20is%3Aissue%20assignee%3A%40me](#)  
+- Role: [Project Teammate]
+- **Biggest Challenge: Imports**
+   - **Why: There would be times when someone would add changes that would include imports. After merging the changes and updating my branch to main,
+       when trying to run the code I would get errors for the missing imports. Would throw me off a bit and would have to figure out the imports.**
+   - **How addressed: Asking teammates if they knew or just checking the error log and finding what to download.** 
+- **Favorite Part: Setting up the searched page and adding style to it to look good. Was very satisfying when it was done and how it turned out.**
+- **If redo: I'd redo working a little more on the CSS for the main page just so it looks better.**
+- **Most Valuable Lesson: Where there's an import, there are at least 5 errors to expect.** 
 
 
 **Aaron Perez**  
