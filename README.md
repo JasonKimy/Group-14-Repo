@@ -86,14 +86,14 @@ https://github.com/JasonKimy/Group-14-Repo/issues/34
 https://github.com/JasonKimy/Group-14-Repo/issues/19
 https://github.com/JasonKimy/Group-14-Repo/issues/11
 https://github.com/JasonKimy/Group-14-Repo/issues/4
-What was your role / which stories did you work on:
-The biggest challenge I worked on was getting the search filter bar to work.
-This is mainly due to the fact that I needed to figure out a way to discreetly change the outcome of the users search result.
-The challenge was addressed by just using string concatenation which was simple enough. I was overthinking and trying to come up with complicated solutions instead of a simple one that worked.
-My favorite part of the project was seeing the API boot up and work. That's actually my favorite part in any project because it makes me realize any data can be taken from the internet. The ethics about that is another discussion.
-I would change working on the CSS last. I worked on it in the beginning but then the CSS was constantly changing since new additions were being added to the screen. So next time CSS will be added last.
-I found the most valuable thing was the stress that comes with being a Software Engineer. Trying to merge your code with others and seeing merge conflicts.
 
+Role: Worked primarily on getting the search filter bar to function correctly, ensuring that user queries could be modified discreetly to refine results.
+Biggest Challenge: Search Filter Bar
+Why: Needed a way to adjust the outcome of user search results. At first, I was overthinking and trying to design complex solutions when a simple one was all that was needed.
+How addressed: Solved the issue by using simple string concatenation to handle the query modification effectively.
+Favorite Part: Seeing the API boot up and return results. This moment is always exciting for me in any project since it proves that real data can be pulled directly from the internet.
+If redo: I would save working on CSS until the very end. Doing it early meant styles kept changing as new features were added, which wasted time.
+Most Valuable Lesson: Experiencing the stress that comes with merging code and handling conflicts. It showed me how important collaboration and version control are in real software engineering.
 
 **Jason Kim**  
 - Pull Requests: [PR Link](https://github.com/JasonKimy/Group-14-Repo/issues?q=is%3Aclosed%20is%3Apr%20author%3AJasonKimy)  
