@@ -115,8 +115,8 @@ Communication was managed via Slack and team meetings twice a week.
 - **Most Valuable Lesson:** 
 
 **Magda Vicente**  
-- Pull Requests: [https://github.com/JasonKimy/Group-14-Repo/pulls?q=is%3Apr+is%3Aclosed+author%3Amozartella](https://github.com/JasonKimy/Group-14-Repo/pulls?q=is%3Apr+is%3Aclosed+author%3Amozartella)  
-- Issues: [https://github.com/JasonKimy/Group-14-Repo/issues?q=is%3Aissue%20state%3Aclosed](https://github.com/JasonKimy/Group-14-Repo/issues?q=is%3Aissue%20state%3Aclosed)  
+- Pull Requests: [PR](https://github.com/JasonKimy/Group-14-Repo/pulls?q=is%3Apr+is%3Aclosed+author%3Amozartella)  
+- Issues: [Issues](https://github.com/JasonKimy/Group-14-Repo/issues?q=is%3Aissue%20state%3Aclosed)  
 - Role: Worked mostly on Front End; touched up the database when needed  
 - **Biggest Challenge:** Working with the database and ensuring everything integrates correctly; also learning GitHub commands  
   - **Why:** I’m less confident with backend work and GitHub commands, and I worried about breaking things  
