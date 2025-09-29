@@ -1,12 +1,7 @@
 <a id="readme-top"></a> 
 # OnlyFoods App
 ## Overview
- This projest is a recipe search app. Users can create an account on the app to search and save any recipes that interest them. When they search a recipe, 
- there is a filter bar in case they want something specific and they will be redirected to an new list of recipes. The new page lists the different recipes 
- of the search item they want and has the original link of the recipe. They will also be an option for each recipe to save it into their account so instead of
- searching for it again, they can look on their account page for their saved recipes. 
-
- 
+ OnlyFoods is a recipe search and management app. Users can create an account and log in to personalize their experience. They can search for desired recipes using keywords and filters, and the search results include links to the original recipe pages. Users can save their favorite recipes to their account, insert new recipes manually, and view favoriteed recipes on their About page. The app combines a React Native front end with a backend database, providing a smooth and organized experience for searching, saving, and managing personal recipes.
  
 
 
