@@ -119,13 +119,13 @@ Communication was managed via Slack and team meetings twice a week.
 **Magda Vicente**  
 - Pull Requests: [PR](https://github.com/JasonKimy/Group-14-Repo/pulls?q=is%3Apr+is%3Aclosed+author%3Amozartella)  
 - Issues: [Issues](https://github.com/JasonKimy/Group-14-Repo/issues?q=is%3Aissue%20state%3Aclosed%20author%3Amozartella)  
-- Role: Worked mostly on Front End; touched up the database when needed  
+- Role: Worked mostly on Front End; touched up the database when needed. I made worked on the login page, the about user page, and insert recipe page. 
 - **Biggest Challenge:** Working with the database and ensuring everything integrates correctly; also learning GitHub commands 
-  - **Why:** I’m less confident with backend work and GitHub commands, and I worried about breaking things  
+  - **Why:** I’m less confident with backend work and GitHub commands, and I worried about breaking things and causing any trouble for my team. Even if my files never had conflict with my teammates.
   - **How addressed:** Practiced regularly, asked teammates for help, reviewed slides, and researched GitHub commands online  
 - **Favorite Part:** Organizing the layout of the pages  
 - **If redo:** Gather all database information before starting development  
-- **Most Valuable Lesson:** Learn the importance of understanding both front-end and back-end so you don't struggle and have to reply on your peers for back-end info. 
+- **Most Valuable Lesson:** Learn the importance of understanding both front-end and back-end so you don't struggle and have to reply on your peers for back-end info. Also being more confident, my PRs never had conflict but always afraid to merge. 
 
 ## Conclusion
 Most of the user stories and issues were completed as planned, and the app functions as intended. Users can search for recipes, save their favorites, and updated their about page successfully. The biggest win was having all features integrate smoothly—front-end functionality, database interactions, and API calls worked together as expected. The app was fully presentable and ready to demonstrate. Overall, the project was highly educational. While some challenges with backend integration and GitHub commands arose, they were overcome through practice, collaboration, and research. The team now has stronger skills in both front-end and back-end development and better understanding of project workflows and version control.
