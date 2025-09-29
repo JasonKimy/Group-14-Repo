@@ -92,8 +92,8 @@ Communication was managed via Slack and team meetings twice a week.
 - **Most Valuable Lesson:** 
 
 **Jason Kim**  
-- Pull Requests: [https://github.com/JasonKimy/Group-14-Repo/issues?q=is%3Aclosed%20is%3Apr%20author%3A%40me](#)  
-- Issues: [https://github.com/JasonKimy/Group-14-Repo/issues?q=is%3Aclosed%20is%3Aissue%20assignee%3A%40me](#)  
+- Pull Requests: [PR Link](https://github.com/JasonKimy/Group-14-Repo/issues?q=is%3Aclosed%20is%3Apr%20author%3AJasonKimy)  
+- Issues: [Issue link](https://github.com/JasonKimy/Group-14-Repo/issues?q=is%3Aclosed%20is%3Aissue%20author%3AJasonKimy)  
 - Role: [Project Teammate]
 - **Biggest Challenge: Imports**
    - **Why: There would be times when someone would add changes that would include imports. After merging the changes and updating my branch to main,
