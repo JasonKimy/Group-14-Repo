@@ -89,11 +89,17 @@ https://github.com/JasonKimy/Group-14-Repo/issues/11
 https://github.com/JasonKimy/Group-14-Repo/issues/4
 
 Role: Worked primarily on getting the search filter bar to function correctly, ensuring that user queries could be modified discreetly to refine results.
+
 Biggest Challenge: Search Filter Bar
+
 Why: Needed a way to adjust the outcome of user search results. At first, I was overthinking and trying to design complex solutions when a simple one was all that was needed.
+
 How addressed: Solved the issue by using simple string concatenation to handle the query modification effectively.
+
 Favorite Part: Seeing the API boot up and return results. This moment is always exciting for me in any project since it proves that real data can be pulled directly from the internet.
+
 If redo: I would save working on CSS until the very end. Doing it early meant styles kept changing as new features were added, which wasted time.
+
 Most Valuable Lesson: Experiencing the stress that comes with merging code and handling conflicts. It showed me how important collaboration and version control are in real software engineering.
 
 **Jason Kim**  
