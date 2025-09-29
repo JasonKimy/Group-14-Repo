@@ -1,4 +1,5 @@
 <a id="readme-top"></a> 
+# OnlyFoods App
 ## About The Project
  This projest is a recipe search app. Users can create an account on the app to search and save any recipes that interest them. When they search a recipe, 
  there is a filter bar in case they want something specific and they will be redirected to an new list of recipes. The new page lists the different recipes 
@@ -16,8 +17,8 @@
 
 ### Built With
 
-* https://react.dev/
-* https://www.npmjs.com/package/expo-sqlite
+* [React] https://react.dev/
+* [Expo SQLite] https://www.npmjs.com/package/expo-sqlite
 
   <img width="571" height="278" alt="image" src="https://github.com/user-attachments/assets/f695bc3e-aec9-4cb4-86a6-b5253f3c269e" />
   <img width="329" height="116" alt="image" src="https://github.com/user-attachments/assets/7e0165d2-9a99-44dd-8669-1626174d89a3" />
@@ -68,12 +69,65 @@ This is an example of how to list things you need to use the software and how to
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
+## Team Retrospective
 
-<!-- USAGE EXAMPLES -->
-## Usage
+### Communication
+Communication was managed via Slack and team meetings twice a week.
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+### Issues 
+- **Initially considered:** 26 issues 
+- **Completed:** 24 issues
 
-_For more examples, please refer to the [Documentation]()_
+### Team Members
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+**Darius Cuevas**  
+- Pull Requests: [link to PRs](#)  
+- Issues: [link to Issues](#)  
+- Role: [Fill in role here]
+- **Biggest Challenge:**
+   - **Why:**
+   - **How addressed:** 
+- **Favorite Part:**
+- **If redo:**
+- **Most Valuable Lesson:** 
+
+**Jason Kim**  
+- Pull Requests: [link to PRs](#)  
+- Issues: [link to Issues](#)  
+- Role: [Fill in role here]
+- **Biggest Challenge:**
+   - **Why:**
+   - **How addressed:** 
+- **Favorite Part:**
+- **If redo:**
+- **Most Valuable Lesson:** 
+
+
+**Aaron Perez**  
+- Pull Requests: [link to PRs](#)  
+- Issues: [link to Issues](#)  
+- Role: [Fill in role here]
+- **Biggest Challenge:**
+   - **Why:**
+   - **How addressed:** 
+- **Favorite Part:**
+- **If redo:**
+- **Most Valuable Lesson:** 
+
+**Magda Vicente**  
+- Pull Requests: [https://github.com/JasonKimy/Group-14-Repo/pulls?q=is%3Apr+is%3Aclosed+author%3Amozartella](https://github.com/JasonKimy/Group-14-Repo/pulls?q=is%3Apr+is%3Aclosed+author%3Amozartella)  
+- Issues: [https://github.com/JasonKimy/Group-14-Repo/issues?q=is%3Aissue%20state%3Aclosed](https://github.com/JasonKimy/Group-14-Repo/issues?q=is%3Aissue%20state%3Aclosed)  
+- Role: Worked mostly on Front End; touched up the database when needed  
+- **Biggest Challenge:** Working with the database and ensuring everything integrates correctly; also learning GitHub commands  
+  - **Why:** I’m less confident with backend work and GitHub commands, and I worried about breaking things  
+  - **How addressed:** Practiced regularly, asked teammates for help, reviewed slides, and researched GitHub commands online  
+- **Favorite Part:** Organizing the layout of the pages  
+- **If redo:** Gather all database information before starting development  
+- **Most Valuable Lesson:** Learn the importance of understanding both front-end and back-end so you don't struggle and have to reply on your peers for back-end info. 
+
+## Conclusion
+
+- How successful was the project?
+  - 
+- What was the largest victory?
+- Final assessment of the project
