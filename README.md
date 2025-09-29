@@ -76,6 +76,7 @@ Communication was managed via Slack and team meetings twice a week.
 ### Team Members
 
 Darius Cuevas
+
 Pull Requests:
 https://github.com/JasonKimy/Group-14-Repo/pull/42
 https://github.com/JasonKimy/Group-14-Repo/pull/39
