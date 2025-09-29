@@ -4,6 +4,7 @@ import { View, Text, TextInput, Button, Alert } from 'react-native';
 import { useRouter } from 'expo-router';
 import styles from './styles';
 import db, { initDatabase } from '../../database/database.js';
+import { saveUserId } from "../../sessions/auth";
 
 export default function LoginScreen() {
   const [username, setUsername] = useState('');
@@ -28,6 +29,7 @@ export default function LoginScreen() {
       );
 
       if (result.length > 0){
+        await saveUserId(result[0].id);
         Alert.alert('Success', `Welcome, ${username}!`);
         router.push('/home');//redirect to home.tsx file located in Onlyfoods/app/home.tsx after login
       }else{
